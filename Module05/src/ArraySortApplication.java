@@ -1,6 +1,9 @@
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -56,10 +59,18 @@ public class ArraySortApplication {
         System.out.println("Optimized bubble sort method has taken " + duration + "ms");
 
         //Виконаємо сортування за зростанням методом перемішування
+        arraySorted = array.clone();
         time = new Date();
         arraySorted = Sort.cocktail(arraySorted);
         duration = new Date().getTime() - time.getTime();
         System.out.println("Cocktail sort method has taken " + duration + "ms");
+
+        //Виконаємо сортування за зростанням використовуючи вбудований метод сортування
+        arraySorted = array.clone();
+        time = new Date();
+        Arrays.sort(arraySorted);
+        duration = new Date().getTime() - time.getTime();
+        System.out.println("JDK in-built sort method has taken " + duration + "ms");
 
         //Шукаємо мінімальне та максимальне значення
         System.out.println("Minimum value is: " + arraySorted[0]);
