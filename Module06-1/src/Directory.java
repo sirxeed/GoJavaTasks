@@ -18,6 +18,7 @@ public class Directory extends File {
         for (int i = 0; i <= files.size() - 1; i++) {
             if (files.get(i).getName().equals(fileName)) {
                 fileNumber = i;
+                break;
             }
         }
         if (fileNumber != -1) {
