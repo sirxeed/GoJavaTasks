@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -72,6 +70,13 @@ public class ArraySortApplication {
         duration = new Date().getTime() - time.getTime();
         System.out.println("JDK in-built sort method has taken " + duration + "ms");
 
+        //Виконаємо сортування за зростанням використовуючи "мій" метод
+        arraySorted = array.clone();
+        time = new Date();
+        arraySorted = Sort.searching(arraySorted);
+        duration = new Date().getTime() - time.getTime();
+        System.out.println("My sort method has taken " + duration + "ms");
+
         //Шукаємо мінімальне та максимальне значення
         System.out.println("Minimum value is: " + arraySorted[0]);
         System.out.println("Maximum value is: " + arraySorted[arraySize - 1]);
@@ -79,9 +84,8 @@ public class ArraySortApplication {
         /*
         //Роздрукуємо усі елементи масиву
         for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+            System.out.println(arraySorted[i] + "       " + array[i]);
         }
         */
-
     }
 }
