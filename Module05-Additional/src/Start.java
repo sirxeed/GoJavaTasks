@@ -31,14 +31,14 @@ public class Start {
             }
         }
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matrix[j][i] + "  ");
+        */
+        for (int i = 0; i < matrixSize; i++) {
+            for (int j = 0; j < matrixSize; j++) {
+                System.out.print(matrix[j][i] + "   ");
             }
             System.out.println();
         }
         matrix[2][0] += 1;
-        */
 
         System.out.print("Matrix determinant is: " + MatrixCalculator.determinant(matrix));
     }
