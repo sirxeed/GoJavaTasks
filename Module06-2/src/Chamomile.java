@@ -1,5 +1,8 @@
 public class Chamomile extends Flower {
-    private String flowerName = "Chamomile";
+
+    Chamomile () {
+        flowerName = "Chamomile";
+    }
 
     public String getFlowerName() {
         return flowerName;

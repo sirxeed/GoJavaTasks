@@ -1,5 +1,7 @@
 public class Tulip extends Flower {
-    private String flowerName = "Tulip";
+    Tulip () {
+        flowerName = "Tulip";
+    }
 
     public String getFlowerName() {
         return flowerName;

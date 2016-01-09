@@ -1,8 +1,8 @@
-public class Flower {
+public abstract class Flower {
     //Поля класу
     private int height;
     private int color;
-    private String flowerName = "Flower";
+    String flowerName;
 
     //Конструктори
     Flower() {

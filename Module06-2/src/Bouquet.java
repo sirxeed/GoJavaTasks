@@ -34,12 +34,15 @@ public class Bouquet {
                     break;
                 }
             }
-            return flowers.get(flowerIndex);
+            if (flowerIndex == -1) {
+                throw new FlowerNotFoundException();
+            }
+            else {
+                return flowers.get(flowerIndex);
+            }
+        } catch (FlowerNotFoundException e) {
+            System.out.println("You have picked up an non-existing flower!");
+            return null;
         }
-        catch (IndexOutOfBoundsException e) {
-            System.err.print("Flower '" + flowerName + "' not found!");
-        }
-
-        return null;
     }
 }

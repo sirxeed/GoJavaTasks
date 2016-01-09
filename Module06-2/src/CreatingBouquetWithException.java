@@ -17,16 +17,20 @@ public class CreatingBouquetWithException {
             bouquet.add(new Tulip());
         }
 
+        System.out.println();
+        System.out.println("Which flower in this bouquet do you prefer?");
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println();
         while (true) {
-            System.out.println("Which flower in this bouquet do you prefer? (Type 'done' to exit)");
             String someFlower = scanner.next();
-            if (someFlower.equals("done")) {
+            if (bouquet.getFlowerByName(someFlower) == null) {
                 break;
             }
-            System.out.println("Flower '" + bouquet.getFlowerByName(someFlower).getFlowerName() + "' is a very good choice!");
+            else {
+                System.out.println("Flower '" + bouquet.getFlowerByName(someFlower).getFlowerName() + "' is a very good choice!");
+            }
+
         }
     }
 }
