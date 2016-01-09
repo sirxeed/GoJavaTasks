@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Andy on 05.01.2016.
  */
-public class Start {
+public class MonteCarloAreaApplicaton {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter precision: ");

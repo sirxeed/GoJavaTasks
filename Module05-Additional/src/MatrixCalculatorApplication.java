@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Andy on 05.01.2016.
  */
-public class Start {
+public class MatrixCalculatorApplication {
     public static void main(String[] args) {
         //Вводимо розмір матриці
         System.out.print("Enter matrix size: ");
