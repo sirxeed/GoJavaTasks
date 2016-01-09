@@ -2,6 +2,7 @@ public class Flower {
     //Поля класу
     private int height;
     private int color;
+    private String flowerName = "Flower";
 
     //Конструктори
     Flower() {
@@ -30,6 +31,10 @@ public class Flower {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    public String getFlowerName() {
+        return flowerName;
     }
 
     //Логіка

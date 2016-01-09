@@ -1,12 +1,7 @@
 public class Rose extends Flower {
-    private String variety;
+    private String flowerName = "Rose";
 
-    public String getVariety() {
-        return variety;
+    public String getFlowerName() {
+        return flowerName;
     }
-
-    public void setVariety(String variety) {
-        this.variety = variety;
-    }
-    //Якась логіка
 }

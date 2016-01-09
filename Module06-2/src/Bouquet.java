@@ -1,68 +1,45 @@
+import java.util.ArrayList;
+
 public class Bouquet {
     //Поля класу
-    private Flower[] flowers = new Flower[1];
+    private ArrayList<Flower> flowers = new ArrayList<>();
 
     //Конструктор
     Bouquet(Flower flower) {
-        flowers[0] = flower;
+        flowers.add(0, flower);
     }
 
     //Методи
     //Геттери і сеттери
-    public Flower[] getFlowers() {
+    public ArrayList getFlowers() {
         return flowers;
     }
 
     public int getQuantity() {
-        return flowers.length;
+        return flowers.size();
     }
-
-    //Логіка
-    public void smell() {
-        //Smell algorithm
-    }
-
-    public void present() {
-        //Present algorithm
-    }
-
-    /*
-    public void add(Flower flower) {
-        //Бекап квітів, які вже в букеті
-        Flower[] flowersTemp = new Flower[flowers.length];
-        flowersTemp = flowers;
-
-        //Створюємо новий масив із розмірністю +1
-        Flower[] this.flowers = new Flower[flowersTemp.length + 1];
-
-        //Переносимо квіти з бекапа в новий букет
-        for (int i = 0; i <= this.flowers.length - 1; i++) {
-            this.flowers[i] = flowersTemp[i];
-        }
-
-        //Додаємо нову квітку
-        flowers[flowers.length] = flower;
-    }
-    */
 
     public void add(Flower flower) {
-        //Створюємо новий масив з розмірністю +1
-        flowers = newFlowers(flowers);
-
-        //додавання нового елемента
-        flowers[flowers.length - 1] = flower;
+        flowers.add(flower);
+        System.out.println("Flower '" + flowers.get(flowers.size()-1).getFlowerName() + "' added to bouquet");
     }
 
-    //Метод створення нового масиву з розмірністю +1 зі збереженням старих елементів
-    private Flower[] newFlowers(Flower[] flowersOld) {
-        //Новий масив
-        Flower[] flowers = new Flower[flowersOld.length + 1];
-
-        //Перенос елементів зі старого масива в новий
-        for (int i = 0; i <= flowersOld.length - 1; i++) {
-            flowers[i] = flowersOld[i];
+    public Flower getFlowerByName(String flowerName) {
+        try {
+            //Порядковий номер квітки в букеті, яка повертається
+            int flowerIndex = -1;
+            for (int i = 0; i < flowers.size(); i++) {
+                if (flowers.get(i).getFlowerName().equals(flowerName)) {
+                    flowerIndex = i;
+                    break;
+                }
+            }
+            return flowers.get(flowerIndex);
         }
-        return flowers;
-    }
+        catch (IndexOutOfBoundsException e) {
+            System.err.print("Flower '" + flowerName + "' not found!");
+        }
 
+        return null;
+    }
 }

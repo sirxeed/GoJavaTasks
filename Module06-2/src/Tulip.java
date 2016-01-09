@@ -1,12 +1,7 @@
 public class Tulip extends Flower {
-    private String variety;
+    private String flowerName = "Tulip";
 
-    public String getVariety() {
-        return variety;
+    public String getFlowerName() {
+        return flowerName;
     }
-
-    public void setVariety(String variety) {
-        this.variety = variety;
-    }
-    //Якась логіка
 }
