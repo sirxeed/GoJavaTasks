@@ -1,17 +1,23 @@
 public class File {
     //Поля класу
-    private String name;
-    private String type;
-    private String path;
-    private boolean hidden = false;
-    private boolean directory = false;
+    protected String name;
+    protected String type;
+    protected String path;
+    protected boolean hidden = false;
+    protected boolean directory = false;
 
     //Конструктори
     File() {
-        name = "NewFile";
+        name = "New File";
         type = "tmp";
         path = "C:\\";
         directory = false;
+    }
+
+    File(String name) {
+        this.name = name;
+        type = "tmp";
+        path = "C:\\";
     }
 
     File(String name, String type, String path) {

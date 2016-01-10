@@ -2,7 +2,7 @@ public abstract class Flower {
     //Поля класу
     private int height;
     private int color;
-    String flowerName;
+    protected String flowerName;
 
     //Конструктори
     Flower() {

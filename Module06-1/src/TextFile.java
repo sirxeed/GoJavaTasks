@@ -1,4 +1,9 @@
 public class TextFile extends File {
+    //Конструктор класу
+    public TextFile(String name) {
+        super(name);
+    }
+
     //Поля класу
     private String contents; //Нехай буде стрінг
     private String author;

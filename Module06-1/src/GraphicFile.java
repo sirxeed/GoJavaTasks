@@ -1,4 +1,10 @@
 public class GraphicFile extends File {
+
+    //Конструктор класу
+    public GraphicFile(String name) {
+        super(name);
+    }
+
     //Поля класу
     private String contents; //Нехай буде стрінг
     private String colorIndex;

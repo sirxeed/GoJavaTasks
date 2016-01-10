@@ -4,7 +4,4 @@ public class Rose extends Flower {
         flowerName = "Rose";
     }
 
-    public String getFlowerName() {
-        return flowerName;
-    }
 }

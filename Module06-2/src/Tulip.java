@@ -3,7 +3,4 @@ public class Tulip extends Flower {
         flowerName = "Tulip";
     }
 
-    public String getFlowerName() {
-        return flowerName;
-    }
 }

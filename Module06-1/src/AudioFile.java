@@ -1,4 +1,10 @@
 public class AudioFile extends File {
+
+    //Конструктор класу
+    public AudioFile(String name) {
+        super(name);
+    }
+
     //Поля класу
     public String contents; //Нехай буде стрінг
     public int frequency;

@@ -4,10 +4,6 @@ import java.util.ArrayList;
 public class Directory extends File {
     private ArrayList<File> files = new ArrayList<File>();
 
-    Directory(ArrayList<File> files) {
-
-    }
-
     //Геттери
     public ArrayList<File> getFiles() {
         return files;
