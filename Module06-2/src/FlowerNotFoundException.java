@@ -2,7 +2,12 @@
  * Created by Андрій on 10.01.2016.
  */
 public class FlowerNotFoundException extends Exception {
-    public static void main(String[] args) {
-        System.out.println("You have to pick right flower!");
+    private String flowerName;
+    public FlowerNotFoundException (String flowerName) {
+        this.flowerName = flowerName;
+    }
+
+    public String errorMessage () {
+        return "You have picked up a non-existing flower: '" + flowerName + "'";
     }
 }

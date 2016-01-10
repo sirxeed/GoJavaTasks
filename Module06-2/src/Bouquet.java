@@ -35,13 +35,13 @@ public class Bouquet {
                 }
             }
             if (flowerIndex == -1) {
-                throw new FlowerNotFoundException();
+                throw new FlowerNotFoundException(flowerName);
             }
             else {
                 return flowers.get(flowerIndex);
             }
         } catch (FlowerNotFoundException e) {
-            System.out.println("You have picked up an non-existing flower!");
+            System.out.println(e.errorMessage());
             return null;
         }
     }
