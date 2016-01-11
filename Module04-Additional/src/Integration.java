@@ -3,13 +3,13 @@
  */
 public class Integration {
     public static double monteCarloParabolic(int precision, double verticalLimit) {
-        //Р”Р»СЏ С„СѓРЅРєС†С–С— x = y^2
+        //Для функції x = y^2
         double area;
 
-        //Р—РЅР°Р№РґРµРјРѕ РјРµР¶С– С„С–РіСѓСЂРё РїРѕ РѕСЃС– Р°Р±СЃС†РёСЃ
+        //Знайдемо межі фігури по осі абсцис
         double horizontalLimit = Math.sqrt(verticalLimit);
 
-        int counter = 0; //Рљ-С‚СЊ С‚РѕС‡РѕРє, СЏРєС– РїРѕС‚СЂР°РїР»СЏСЋС‚СЊ РІ С„С–РіСѓСЂСѓ
+        int counter = 0; //К-ть точок, які потрапляють в фігуру
         double x, y;
         for (int i = 1; i <= precision; i++) {
             x = Math.random() * horizontalLimit * 2 - horizontalLimit;
