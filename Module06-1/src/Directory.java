@@ -17,12 +17,15 @@ public class Directory extends File {
                 break;
             }
         }
+
+
         if (fileNumber != -1) {
             System.out.println("Found '" + fileName + "' file");
             return files.get(fileNumber);
         } else {
             throw new FileNotFoundException("File '" + fileName + "' not found");
         }
+
     }
 
     public void addFiles(File file) {
