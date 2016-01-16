@@ -1,6 +1,3 @@
-/**
- * Created by Андрій on 27.12.2015.
- */
 public class Sort {
 
     public static int[] bubble(int[] array) {
@@ -78,8 +75,8 @@ public class Sort {
 
         //Знайдемо скільки разів мінімум зустрічається в масиві
         int index = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == minimum) {
+        for (int anArray : array) {
+            if (anArray == minimum) {
                 index++;
             }
         }
@@ -92,17 +89,17 @@ public class Sort {
         //Знаходимо наступні мінімуми, які більші за попередній
         while (index < arraySorted.length) {
             int minimumNew = maximum;
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] < minimumNew && array[i] > minimum) {
-                    minimumNew = array[i];
+            for (int anArray : array) {
+                if (anArray < minimumNew && anArray > minimum) {
+                    minimumNew = anArray;
                 }
             }
             minimum = minimumNew;
 
             //Скільки разів зустрічається даний мінімум
             int indexNew = 0;
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] == minimum) {
+            for (int anArray : array) {
+                if (anArray == minimum) {
                     indexNew++;
                 }
             }

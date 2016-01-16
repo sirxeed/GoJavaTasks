@@ -4,9 +4,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Date;
 
-/**
- * Created by Андрій on 27.12.2015.
- */
 public class ArraySortApplication {
     public static void main(String[] args) {
         //Створимо масив заданого розміру
@@ -35,7 +32,7 @@ public class ArraySortApplication {
             array[i] = (int) (Math.random() * arraySize * 5);
         }
 
-        //Сиворюємо дублікат масиву, зяким будемо гратися
+        //Сиворюємо дублікат масиву, з яким будемо працювати
         int[] arraySorted = new int[arraySize];
         arraySorted = array.clone();
 
