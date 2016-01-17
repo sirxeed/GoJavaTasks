@@ -1,6 +1,3 @@
-/**
- * Created by Андрій on 16.01.2016.
- */
 public class IllegalMatrixSizeException extends Throwable {
     private int matrixRows;
     private int matrixCols;

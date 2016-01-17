@@ -1,6 +1,3 @@
-/**
- * Created by Andy on 05.01.2016.
- */
 public class MatrixCalculator {
     public static int determinant(int[][] matrix) throws IllegalMatrixSizeException {
         int determinant = 0;
