@@ -22,8 +22,8 @@ public class MatrixCalculatorApplication {
 
         //Друкуємо вихідну матрицю
         for (int i = 0; i < matrix[0].length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                System.out.print(matrix[j][i] + " \t\t\t");
+            for (int[] aMatrix : matrix) {
+                System.out.print(aMatrix[i] + " \t\t\t");
             }
             System.out.println();
         }
@@ -71,27 +71,27 @@ public class MatrixCalculatorApplication {
             c = MatrixCalculator.multiply(a, b);
 
             //Print a 'a'
-            for (int i = 0; i < a.length; i++) {
+            for (int[] anA : a) {
                 for (int j = 0; j < a[0].length; j++) {
-                    System.out.print(a[i][j] + "\t\t");
+                    System.out.print(anA[j] + "\t\t");
                 }
                 System.out.println();
             }
             System.out.println();
 
             //Print a 'b'
-            for (int i = 0; i < b.length; i++) {
+            for (int[] aB : b) {
                 for (int j = 0; j < b[0].length; j++) {
-                    System.out.print(b[i][j] + "\t\t");
+                    System.out.print(aB[j] + "\t\t");
                 }
                 System.out.println();
             }
             System.out.println();
 
             //Print a result
-            for (int i = 0; i < c.length; i++) {
+            for (int[] aC : c) {
                 for (int j = 0; j < c[0].length; j++) {
-                    System.out.print(c[i][j] + "\t\t");
+                    System.out.print(aC[j] + "\t\t");
                 }
                 System.out.println();
             }
