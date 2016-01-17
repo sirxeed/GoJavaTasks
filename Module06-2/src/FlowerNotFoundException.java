@@ -1,6 +1,3 @@
-/**
- * Created by Андрій on 10.01.2016.
- */
 public class FlowerNotFoundException extends Exception {
     private String flowerName;
     public FlowerNotFoundException (String flowerName) {

@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by Андрій on 09.01.2016.
- */
 public class CreatingBouquetWithException {
 
     public static void main(String[] args) {
