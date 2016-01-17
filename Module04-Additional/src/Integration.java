@@ -1,6 +1,3 @@
-/**
- * Created by Andy on 05.01.2016.
- */
 public class Integration {
     public static double monteCarlo(float a, float b, float precision) {
         double area;
@@ -19,7 +16,7 @@ public class Integration {
         for (int i = 1; i <= number; i++) {
             x = (float)Math.random() * (b - a) + a;
             y = (float)Math.random() * (max - min) + min;
-            if (y <= Func.Parabolic(x)) {
+            if (y <= Func.parabolic(x)) {
                 counter++;
             }
         }
@@ -30,11 +27,11 @@ public class Integration {
     }
 
     protected static float minimum(float a, float b) {
-        float min = Func.Parabolic(a);
+        float min = Func.parabolic(a);
 
         for (float i = a; i <= b ; i += (b - a) / 1000) {
-            if (Func.Parabolic(i) < min) {
-                min = Func.Parabolic(i);
+            if (Func.parabolic(i) < min) {
+                min = Func.parabolic(i);
             }
         }
         System.out.println("The minimum is: " + min);
@@ -42,11 +39,11 @@ public class Integration {
     }
 
     protected static float maximum(float a, float b) {
-        float max = Func.Parabolic(a);
+        float max = Func.parabolic(a);
 
         for (float i = a; i <= b ; i += (b - a) / 1000) {
-            if (Func.Parabolic(i) > max) {
-                max = Func.Parabolic(i);
+            if (Func.parabolic(i) > max) {
+                max = Func.parabolic(i);
             }
         }
         System.out.println("The maximum is: " + max);
