@@ -44,8 +44,10 @@ public class Start {
             }
         }
 
+        //Let's print file list as we has it now
         FileListPrint.printFileList(directory);
 
+        //User's interface
         while(true) {
             System.out.println("Do you want to sort it? Type '(n)ame', '(t)ype', '(s)ize' or 'e(x)it' to end the program:");
             String command = scanner.next();
@@ -68,6 +70,7 @@ public class Start {
         }
     }
 
+    //This method checks if file with such name and type exist
     private static boolean fileExistCheck(ArrayList<File> files, String fileName, String fileType) {
         boolean checker = true; //True when file with such name and type was found
         for (File file : files) {
@@ -79,6 +82,7 @@ public class Start {
         return checker;
     }
 
+    //This method returns random length string with random content
     private static String someString () {
         String string = "";
         int length = (int)(Math.random() * 512);
