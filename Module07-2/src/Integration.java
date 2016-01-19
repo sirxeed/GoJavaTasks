@@ -3,8 +3,8 @@ public class Integration {
         double area;
 
         //Calculating function minimum and maximum between 'a' and 'b'
-        float min = minimum(a, b);
-        float max = maximum(a, b);
+        float min = minimum(a, b, precision);
+        float max = maximum(a, b, precision);
 
         //Starting iteration
         int counter = 0; //counter of accurate points
@@ -26,10 +26,10 @@ public class Integration {
         return area;
     }
 
-    protected static float minimum(float a, float b) {
+    protected static float minimum(float a, float b, float precision) {
         float min = Func.parabolic(a);
 
-        for (float i = a; i <= b ; i += (b - a) / 1000) {   //1000 CAN BE REPLACED WITH FORMULA TO BE DEPENDED OF PRECISION
+        for (float i = a; i <= b ; i += (b - a) * precision) {
             if (Func.parabolic(i) < min) {
                 min = Func.parabolic(i);
             }
@@ -38,10 +38,10 @@ public class Integration {
         return min;
     }
 
-    protected static float maximum(float a, float b) {
+    protected static float maximum(float a, float b, float precision) {
         float max = Func.parabolic(a);
 
-        for (float i = a; i <= b ; i += (b - a) / 1000) {   //1000 CAN BE REPLACED WITH FORMULA TO BE DEPENDED OF PRECISION
+        for (float i = a; i <= b ; i += (b - a) * precision) {
             if (Func.parabolic(i) > max) {
                 max = Func.parabolic(i);
             }
