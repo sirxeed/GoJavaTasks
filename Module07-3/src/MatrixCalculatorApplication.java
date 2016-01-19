@@ -35,7 +35,6 @@ public class MatrixCalculatorApplication {
         }
 
 
-
         //Multiply matrix program
         System.out.println("\n" + "---Matrix multiply program---");
         System.out.print("Enter the number of first matrix rows: ");
@@ -54,16 +53,8 @@ public class MatrixCalculatorApplication {
 
         //FILLING OF MATRIXES CAN BE MOVED INTO THE METHOD
         //Let's fill matrixes with random -10...10 values
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[0].length; j++) {
-                a[i][j] = (int)(Math.random() * 20) - 10;
-            }
-        }
-        for (int i = 0; i < b.length; i++) {
-            for (int j = 0; j < b[0].length; j++) {
-                b[i][j] = (int)(Math.random() * 10) - 5;
-            }
-        }
+        matrixFillRandom(a, 10);
+        matrixFillRandom(b, 10);
 
         //Run matrix multiplier
         int[][] c = new int[a.length][b[0].length];
@@ -71,35 +62,39 @@ public class MatrixCalculatorApplication {
         if (a.length == b[0].length) {
             c = MatrixCalculator.multiply(a, b);
 
-            //MATRIX PRINTING CAN BE MOVED INTO THE METHOD
             //Print a 'a'
-            for (int[] anA : a) {
-                for (int j = 0; j < a[0].length; j++) {
-                    System.out.print(anA[j] + "\t\t");
-                }
-                System.out.println();
-            }
+            System.out.println("First matrix:");
+            matrixPrint(a);
             System.out.println();
 
             //Print a 'b'
-            for (int[] aB : b) {
-                for (int j = 0; j < b[0].length; j++) {
-                    System.out.print(aB[j] + "\t\t");
-                }
-                System.out.println();
-            }
+            System.out.println("Second matrix:");
+            matrixPrint(b);
             System.out.println();
 
             //Print a result
-            for (int[] aC : c) {
-                for (int j = 0; j < c[0].length; j++) {
-                    System.out.print(aC[j] + "\t\t");
-                }
-                System.out.println();
-            }
-        }
-        else {
+            System.out.println("Multiply result matrix:");
+            matrixPrint(c);
+        } else {
             System.out.println("Rows of first matrix must be equal to columns of second one");
+        }
+    }
+
+    public static void matrixPrint(int[][] matrix) {
+        for (int[] amatrix : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(amatrix[j] + "\t\t");
+            }
+            System.out.println();
+
+        }
+    }
+
+    public static void matrixFillRandom(int[][] matrix, int numberLimit) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = (int) (Math.random() * numberLimit*2) - numberLimit;
+            }
         }
     }
 }
