@@ -70,7 +70,7 @@ public class Start {
         }
     }
 
-    //This method checks if file with such name and type exist
+    //This method checks if file with such name and type exists
     private static boolean fileExistCheck(ArrayList<File> files, String fileName, String fileType) {
         boolean checker = true; //True when file with such name and type was found
         for (File file : files) {
