@@ -27,11 +27,8 @@ public class ArraySortApplication {
 
         int[] array = new int[arraySize];
 
-        //NEXT CAN BE USED SEVERAL TIME AND HAVE TO BE MOVED TO A METHOD
         //Заповнимо масив довільними значеннями
-        for (int i = 0; i < arraySize; i++) {
-            array[i] = (int) (Math.random() * arraySize * 5);
-        }
+        arrayFillRandom(array);
 
         //Сиворюємо дублікат масиву, з яким будемо працювати
         int[] arraySorted = new int[arraySize];
@@ -79,12 +76,19 @@ public class ArraySortApplication {
         System.out.println("Minimum value is: " + arraySorted[0]);
         System.out.println("Maximum value is: " + arraySorted[arraySize - 1]);
 
-        //NEXT CAN BE USED SEVERAL TIME AND HAVE TO BE MOVED TO A METHOD:
-        /*
         //Роздрукуємо усі елементи масиву
+        arrayPrint(array, arraySorted);
+    }
+
+    public static void arrayFillRandom(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * array.length * 5);
+        }
+    }
+
+    public static void arrayPrint(int array[], int arraySorted[]) {
         for (int i = 0; i < array.length; i++) {
             System.out.println(arraySorted[i] + "       " + array[i]);
         }
-        */
     }
 }

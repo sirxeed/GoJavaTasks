@@ -4,9 +4,7 @@ public class Sort {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
-                    int tempValue = array[i];
-                    array[i] = array[j];
-                    array[j] = tempValue;
+                    swap(array, i, j);
                 }
             }
         }
@@ -20,9 +18,7 @@ public class Sort {
             boolean checker = false;
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
-                    int tempValue = array[i];
-                    array[i] = array[j];
-                    array[j] = tempValue;
+                    swap(array, i, j);
                     checker = true;
                 }
             }
@@ -43,18 +39,14 @@ public class Sort {
             //Переносимо максимум вправо
             for (int i = left; i < right; i++) {
                 if (array[i] > array[i + 1]) {
-                    int tempValue = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = tempValue;
+                    swap(array, i, i+1);
                 }
             }
 
             for (int i = right; i > left; i--) {
                 //Переносимо мінімум вліво
                 if (array[i] < array[i - 1]) {
-                    int tempValue = array[i];
-                    array[i] = array[i - 1];
-                    array[i - 1] = tempValue;
+                    swap(array, i, i-1);
                 }
             }
 
@@ -128,5 +120,11 @@ public class Sort {
                 max = array[i];
         }
         return max;
+    }
+
+    public static void swap (int[] array, int i, int j) {
+        int tempValue = array[i];
+        array[i] = array[j];
+        array[j] = tempValue;
     }
 }
