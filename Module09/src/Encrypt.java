@@ -1,23 +1,39 @@
 public class Encrypt {
     public static String encryptByCaesar(String string) {
         char[] chars = string.toCharArray();
-        StringBuilder stringBuilder = new StringBuilder("");
+        int k = 7;  //Ключ коду
+        StringBuilder encrypted = new StringBuilder("");
 
-        for (int i = 0; i < chars.length; i++) {
-            chars[i] += 7; //Magic number
-            stringBuilder.append(chars[i]);
+        for (char i : chars) {
+            if (Character.isLetter(i)) {
+                if (Character.isUpperCase(i)) {
+                    encrypted.append((char) ('A' + (i - 'A' + k) % 26));
+                } else {
+                    encrypted.append((char) ('a' + (i - 'a' + k) % 26));
+                }
+            } else {
+                encrypted.append(i);
+            }
         }
-        return stringBuilder.toString();
+        return encrypted.toString();
     }
 
     public static String decryptByCaesar(String string) {
         char[] chars = string.toCharArray();
-        StringBuilder stringBuilder = new StringBuilder("");
+        int k = 7; //Ключ коду
+        StringBuilder decrypted = new StringBuilder("");
 
-        for (int i = 0; i < chars.length; i++) {
-            chars[i] -= 7; //Magic number
-            stringBuilder.append(chars[i]);
+        for (char i : chars) {
+            if (Character.isLetter(i)) {
+                if (Character.isUpperCase(i)) {
+                    decrypted.append((char) ('A' + (i - 'A' - k) % 26));
+                } else {
+                    decrypted.append((char) ('a' + (i - 'a' - k) % 26));
+                }
+            } else {
+                decrypted.append(i);
+            }
         }
-        return stringBuilder.toString();
+        return decrypted.toString();
     }
 }
