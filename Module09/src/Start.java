@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Start {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<File> files = new ArrayList<>();
+        List<File> files = new ArrayList<>();
 
         System.out.print("Type the name of the folder: ");
         Directory directory = new Directory(files, scanner.next());
@@ -92,18 +93,16 @@ public class Start {
                     }
                     try {
                         int fileNumberToEncrypt = Integer.parseInt(command) - 1;
+                        directory.getFiles().get(fileNumberToEncrypt).setName(EncryptUtils.caesarEncryptionMethod(directory.getFiles().get(fileNumberToEncrypt).getName(), directory.getFiles().get(fileNumberToEncrypt).isEncrypted));
+                        //Let's change a flag 'encrypted'
                         if (directory.getFiles().get(fileNumberToEncrypt).isEncrypted) {
-                            directory.getFiles().get(fileNumberToEncrypt).setName(Encrypt.decryptByCaesar(directory.getFiles().get(fileNumberToEncrypt).getName()));
-                            directory.getFiles().get(fileNumberToEncrypt).setType(Encrypt.decryptByCaesar(directory.getFiles().get(fileNumberToEncrypt).getType()));
                             directory.getFiles().get(fileNumberToEncrypt).isEncrypted = false;
-                            FileListPrint.printFileList(directory);
                         } else {
-                            directory.getFiles().get(fileNumberToEncrypt).setName(Encrypt.encryptByCaesar(directory.getFiles().get(fileNumberToEncrypt).getName()));
-                            directory.getFiles().get(fileNumberToEncrypt).setType(Encrypt.encryptByCaesar(directory.getFiles().get(fileNumberToEncrypt).getType()));
                             directory.getFiles().get(fileNumberToEncrypt).isEncrypted = true;
-                            FileListPrint.printFileList(directory);
                         }
 
+                        //Let's print new file list
+                        FileListPrint.printFileList(directory);
                     } catch (IllegalArgumentException e) {
                         System.out.println("You entered a wrong command!");
                     }
@@ -113,7 +112,7 @@ public class Start {
     }
 
     //This method checks if file with such name and type exists
-    private static boolean fileExistCheck(ArrayList<File> files, String fileName, String fileType) {
+    private static boolean fileExistCheck(List<File> files, String fileName, String fileType) {
         boolean checker = true; //True when file with such name and type was found
         for (File file : files) {
             if (file.getName().equals(fileName) && file.getType().equals(fileType)) {

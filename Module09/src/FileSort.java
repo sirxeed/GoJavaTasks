@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class FileSort {
-    public static void byName(ArrayList<File> files) {
+    public static void byName(List<File> files) {
         //Bubble-method file name sort
         for (int i = 0; i < files.size() - 1; i++) {
             boolean filesWasSwapped = false;
@@ -32,7 +33,7 @@ public class FileSort {
         }
     }
 
-    public static void byType(ArrayList<File> files) {
+    public static void byType(List<File> files) {
         //Bubble-method file type sort
         for (int i = 0; i < files.size() - 1; i++) {
             boolean filesWasSwapped = false;
@@ -63,7 +64,7 @@ public class FileSort {
         }
     }
 
-    public static void bySize(ArrayList<File> files) {
+    public static void bySize(List<File> files) {
         //Bubble-method file size sort
         for (int i = 0; i < files.size() - 1; i++) {
             boolean filesWasSwapped = false;
@@ -109,7 +110,7 @@ public class FileSort {
         }
     }
 
-    private static void swap(ArrayList<File> files, int a, int b) {
+    private static void swap(List<File> files, int a, int b) {
         File tempFile = files.get(a);
         files.set(a, files.get(b));
         files.set(b, tempFile);

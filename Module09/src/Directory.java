@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Directory extends File {
-    private ArrayList<File> files = new ArrayList<>();
+    private List<File> files = new ArrayList<>();
 
-    Directory(ArrayList<File> files, String name) {
+    Directory(List<File> files, String name) {
         this.name = name;
     }
 
     //Геттер
-    public ArrayList<File> getFiles() {
+    public List<File> getFiles() {
         return files;
     }
 
