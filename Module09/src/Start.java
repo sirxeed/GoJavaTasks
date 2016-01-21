@@ -93,7 +93,7 @@ public class Start {
                     }
                     try {
                         int fileNumberToEncrypt = Integer.parseInt(command) - 1;
-                        directory.getFiles().get(fileNumberToEncrypt).setName(EncryptUtils.caesarEncryptionMethod(directory.getFiles().get(fileNumberToEncrypt).getName(), directory.getFiles().get(fileNumberToEncrypt).isEncrypted));
+                        directory.getFiles().get(fileNumberToEncrypt).setName(EncryptUtils.encryptByCaesar(directory.getFiles().get(fileNumberToEncrypt).getName(), directory.getFiles().get(fileNumberToEncrypt).isEncrypted));
                         //Let's change a flag 'encrypted'
                         if (directory.getFiles().get(fileNumberToEncrypt).isEncrypted) {
                             directory.getFiles().get(fileNumberToEncrypt).isEncrypted = false;
