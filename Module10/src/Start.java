@@ -42,7 +42,7 @@ public class Start {
 
     private static void print(List<String> contents) {
         for (String content : contents) {
-            System.out.println(EncryptUtils.encryptByCaesar(content, true));
+            System.out.println(content);
         }
     }
 
@@ -56,7 +56,7 @@ public class Start {
             userInput = scanner.next();
             fileWriter = new FileWriter(userInput);
             for (int i = 0; i < contents.size(); i++) {
-                fileWriter.write(contents.get(i));
+                fileWriter.write(EncryptUtils.encryptByCaesar(contents.get(i), false));
                 fileWriter.write(System.lineSeparator());
             }
         } finally {
@@ -68,15 +68,15 @@ public class Start {
 
     private static void editing(List<String> contents) {
         Scanner scanner = new Scanner(System.in);
+        Scanner textScanner = new Scanner(System.in);
         String userInput;
 
         while (true) {
             System.out.print("Do you want to add a string? ");
             userInput = scanner.next();
-
             if (userInput.equals("y") || userInput.equals("yes")) {
                 System.out.print("> ");
-                contents.add(scanner.nextLine());
+                contents.add(textScanner.nextLine());
             }
 
             if (userInput.equals("n") || userInput.equals("no")) {
@@ -98,7 +98,7 @@ public class Start {
             try {
                 Scanner fileScanner = new Scanner(fileReader);
                 while (fileScanner.hasNext()) {
-                    contents.add(fileScanner.nextLine());
+                    contents.add(EncryptUtils.encryptByCaesar(fileScanner.nextLine(), true));
                 }
 
             } finally {
