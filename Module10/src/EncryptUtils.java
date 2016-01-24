@@ -14,7 +14,6 @@ public class EncryptUtils {      //used this: http://rosettacode.org/wiki/Caesar
             if (Character.isLetter(i)) {
                 if (Character.isUpperCase(i)) {
                     crypted.append((char) ('A' + (i - 'A' + shift * defineEncryptDirection(encrypt)) % DEFAULT_ALPHABET_SIZE));
-                    System.out.println(defineEncryptDirection(encrypt));
                 } else {
                     crypted.append((char) ('a' + (i - 'a' + shift * defineEncryptDirection(encrypt)) % DEFAULT_ALPHABET_SIZE));
                 }
@@ -34,5 +33,4 @@ public class EncryptUtils {      //used this: http://rosettacode.org/wiki/Caesar
             return 1;
         }
     }
-
 }

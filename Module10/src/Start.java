@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Start {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String userInput;
         List<String> contents = new ArrayList<>();
@@ -18,12 +18,26 @@ public class Start {
 
             //If user wants to open a file
             if (userInput.equals("o")) {
-                contents = opening();
+                while (true) {
+                    try {
+                        contents = opening();
+                        break;
+                    } catch (IOException ex) {
+                        System.out.println("File not exist. Try again: ");
+                    }
+                }
             }
 
             //If user wants to save 'contents' to a file
             if (userInput.equals("s")) {
-                saving(contents);
+                while (true) {
+                    try {
+                        saving(contents);
+                        break;
+                    } catch (IOException ex) {
+                        System.out.println("Can't save to this file: ");
+                    }
+                }
             }
 
             //If user wants to add 'contents' to a file
@@ -49,17 +63,19 @@ public class Start {
         Scanner scanner = new Scanner(System.in);
         FileWriter fileWriter = null;
 
-        System.out.print("Enter a file name: ");
-        try {
-            userInput = scanner.next();
-            fileWriter = new FileWriter(userInput);
-            for (int i = 0; i < contents.size(); i++) {
-                fileWriter.write(EncryptUtils.encryptByCaesar(contents.get(i), false));
-                fileWriter.write(System.lineSeparator());
-            }
-        } finally {
-            if (fileWriter != null) {
-                fileWriter.close();
+        System.out.print("Enter a file name to save or (c)ancel: ");
+        userInput = scanner.next();
+        fileWriter = new FileWriter(userInput);
+        if (!userInput.equals("c")) {
+            try {
+                for (int i = 0; i < contents.size(); i++) {
+                    fileWriter.write(EncryptUtils.encryptByCaesar(contents.get(i), false));
+                    fileWriter.write(System.lineSeparator());
+                }
+            } finally {
+                if (fileWriter != null) {
+                    fileWriter.close();
+                }
             }
         }
     }
@@ -87,9 +103,9 @@ public class Start {
         Scanner scanner = new Scanner(System.in);
         List<String> contents = new ArrayList<>();
 
-        System.out.print("Enter the file name: ");
+        System.out.print("Enter the file name to open or (c)ancel: ");
         String userInput = scanner.next();
-        if (!userInput.equals("")) {
+        if (!userInput.equals("c")) {
 
             //Open a file
             FileReader fileReader = new FileReader(userInput);
@@ -104,8 +120,6 @@ public class Start {
                     fileReader.close();
                 }
             }
-        } else {
-            System.out.print("You must enter the file name! ");
         }
         return contents;
     }
