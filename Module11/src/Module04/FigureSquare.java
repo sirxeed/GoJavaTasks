@@ -1,4 +1,7 @@
+package Module04;
+
 public class FigureSquare {
+
     public static float triangleSquare (float side, float height) {
         return side * height / 2;
     }

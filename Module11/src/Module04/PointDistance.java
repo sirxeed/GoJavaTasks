@@ -1,3 +1,5 @@
+package Module04;
+
 public class PointDistance {
     public static float distance (int x1, int y1, int x2, int y2) {
         int deltaX = x2 - x1;
